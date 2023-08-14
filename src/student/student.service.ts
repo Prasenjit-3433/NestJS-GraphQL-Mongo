@@ -8,6 +8,10 @@ import { Student } from './student.entity';
 export class StudentService {
   constructor(private studentRepository: StudentRepository) {}
 
+  async getStudents(): Promise<Student[]> {
+    return this.studentRepository.find();
+  }
+
   async createStudent(
     createStudentInput: CreateStudentInput,
   ): Promise<Student> {
